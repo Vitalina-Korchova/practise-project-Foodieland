@@ -245,10 +245,36 @@ function RecipesBlockDisplay(){
         iconNoLikeRecipe.classList.add('r__elem__nolike');
         iconNoLikeRecipe.src = "/images/recipes/icon-nolike.png";
 
+        const iconLikeRecipe = document.createElement('img');
+        iconLikeRecipe.classList.add('r__elem__like');
+        iconLikeRecipe.src = "/images/recipes/icon-like.png";
+
         //add likeIcon
         elem.appendChild(imageRecipe);
         elem.appendChild(titleRecipe);
         elem.appendChild(characteristicsRecipe);
         elem.appendChild(iconNoLikeRecipe);
+        elem.appendChild(iconLikeRecipe);
+
+        chageIconLikeNolike(iconLikeRecipe, iconNoLikeRecipe);
+
+        function chageIconLikeNolike(iconLike, iconNolike) {
+
+            iconNolike.addEventListener('click', ()=>{
+                iconNolike.style.display = "none";
+                iconLike.style.display = "block";
+                iconLike.classList.add('like-animation');
+                setTimeout(() => iconLike.classList.remove('like-animation'), 300);
+            });
+
+            
+            iconLike.addEventListener('click', ()=>{
+                iconNolike.style.display = "block";
+                iconLike.style.display = "none";
+                iconNolike.classList.add('nolike-animation');
+                setTimeout(() => iconNolike.classList.remove('nolike-animation'), 300);
+            });
+
+        }
     }
 }

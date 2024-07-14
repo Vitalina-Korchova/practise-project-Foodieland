@@ -522,10 +522,64 @@ header::after{
 }
 
 .r__elem__nolike{
+    display: block;
     width: 42px;
     height: 42px;
     position: absolute;
     top: 32px;
     left: 78%;
+    transition: transform 0.3s ease;
 }
 
+.r__elem__nolike:hover{
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+.r__elem__like{
+    display: none;
+    width: 42px;
+    height: 42px;
+    position: absolute;
+    top: 32px;
+    left: 78%;
+    transition: transform 0.3s ease;
+}
+
+.r__elem__like:hover{
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+
+@keyframes likeAnimation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes nolikeAnimation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.like-animation {
+    animation: likeAnimation 0.3s forwards;
+}
+
+.nolike-animation {
+    animation: nolikeAnimation 0.3s forwards;
+}
